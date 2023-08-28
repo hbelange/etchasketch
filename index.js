@@ -1,17 +1,12 @@
 const container = document.querySelector('.container'); // selects the body
-container.style.cssText = 'border: 2px solid black; display: inline-block'
+container.style.cssText = 'height: 900px; width: 900px; border: 2px solid black; display: flex; flex-wrap: wrap'
 
 // Loop for creating 16x16 div grid
-for (i = 0; i < 16; i++){
-    const row = document.createElement('div');
-    row.style.display = 'flex';
-    for (j = 0; j < 16; j++){
-        const square = document.createElement('div');
-        square.classList.add("square");
-        square.style.cssText = "border: 1px solid black; height: 50px; width: 50px";
-        row.appendChild(square)
-    }
-    container.appendChild(row);
+for (i = 0; i < 256; i++){
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.cssText = "border: 1px solid black; height: 54.25px; width: 54.25px"; // (900 - 2x1 - 15x2)/16
+    container.appendChild(square);
 }
 
 // Creating the event listener for the hover effect,turns colour red
